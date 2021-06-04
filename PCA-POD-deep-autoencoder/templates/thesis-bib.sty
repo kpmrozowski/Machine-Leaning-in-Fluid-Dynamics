@@ -1,0 +1,146 @@
+% ----------------- BIBLIOGRAPHY -------------------
+
+\usepackage{csquotes}
+% \DeclareQuoteAlias{croatian}{polish}
+\usepackage[%
+style=numeric, % numeric, alphabetic, authoryear, etc.
+% sorting=nty,
+sorting=none,
+% date=short,
+dateabbrev=false,
+isbn=false,
+doi=false,
+eprint=false,
+% abbreviate = true,
+giveninits=true,
+% natbib=true,
+url=true,
+backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+% From template??
+%\usepackage[backend=bibtex, style=verbose-trad2]{biblatex}
+
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\renewcommand*{\bibfont}{\small}
+
+\renewbibmacro*{in:}{}
+
+\usepackage{xpatch}
+
+\xpatchbibdriver{book}{%
+	\newunit
+	\iffieldundef{maintitle}
+	{\printfield{volume}%
+		\printfield{part}}
+	{}%
+}
+{%
+}{}{}
+
+\xpatchbibdriver{book}{%
+	\usebibmacro{publisher+location+date}%
+}
+{%
+	\usebibmacro{publisher+location+date}%
+	\newunit
+	\printfield{volume}%
+	\printfield{part}
+	\usebibmacro{finentry}
+}{}{}
+
+\DeclareFieldFormat{journaltitle}{#1\isdot}
+% \DeclareFieldFormat[article, periodical]{number}{nr #1}% number of a~journal
+
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished, misc, online, book]
+{title}{\mkbibemph{#1}}
+
+\DeclareFieldFormat*{urldate}{%
+	[Dostęp:\addspace
+	\thefield{urlday}\adddot%
+	\thefield{urlmonth}\adddot%
+	\thefield{urlyear}\isdot]}
+\DeclareFieldFormat*{volume}{\bibstring{jourvol}\addnbspace #1}
+\DeclareFieldFormat*{number}{\bibstring{number}\addnbspace #1}
+% \DeclareFieldFormat*{date}{%
+%   \thefield{day}\adddot%
+%   \thefield{month}\adddot%
+%   \thefield{year}\isdot}
+
+% IMPORTANT - otherwise pages such as S0* in JINST are badly formatted
+\DeclareNumChars*{.S}
+
+\newbibmacro*{volume+number+pages+eid}{%
+	\printfield{volume}%
+	\setunit{\addcomma\addspace}%
+	\printfield{number}%
+	\setunit{\addcomma\addspace}%
+	\printfield{pages}%
+	\clearfield{pages}%
+	\setunit{\addcomma\addspace}%
+	\printfield{eid}}
+
+\renewbibmacro*{journal+issuetitle}{%
+	\usebibmacro{journal}%
+	\setunit*{\addcomma\space}%
+	\iffieldundef{series}
+	{}
+	{\newunit
+		\printfield{series}%
+		\setunit{\addcomma\space}
+	}%
+	\usebibmacro{issue}%
+	\setunit{\addcomma\space}%
+	% \usebibmacro{issue+date}%
+	% \setunit{\addcomma\space}%
+	\usebibmacro{volume+number+pages+eid}%
+	\usebibmacro{date}
+	\newunit}
+
+\renewbibmacro*{publisher+location+date}{%
+	\printlist{publisher}%
+	\iflistundef{publisher}
+	{\setunit*{\addcomma\space}}
+	{\setunit*{\addcomma\space}}%
+	\printlist{location}%
+	\setunit*{\addspace}%
+	\usebibmacro{date}%
+	\newunit}
+
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=blue,
+	pdftitle={Sharelatex Example},
+	bookmarks=true,
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+
+% Redefine citation commands to be hyperlinks
+\DeclareCiteCommand{\citetitle}
+{\boolfalse{citetracker}%
+	\boolfalse{pagetracker}%
+	\usebibmacro{prenote}}
+{\ifciteindex
+	{\indexfield{indextitle}}
+	{}%
+	\printtext[bibhyperref]{\mkbibemph{\thefield{title}}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citeauthor}{
+	\boolfalse{citetracker}%
+	\boolfalse{pagetracker}%
+	\usebibmacro{prenote}}
+{\ifciteindex
+	{\indexnames{labelname}}
+	{}%
+	\printtext[bibhyperref]{\printnames[given-family]{labelname}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
