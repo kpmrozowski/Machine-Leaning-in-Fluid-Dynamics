@@ -58,7 +58,7 @@
 {Metody sztucznej inteligencji w mechanice płynów}
 
 \subtitle
-{MSI2 - prezentacja wprowadzająca} % (optional)
+{Temat prezentacji: Redukcja wymiarowości} % (optional)
 
 \author[Kornel Mrozowski] % (optional, use only with lots of authors)
 {Kornel~Mrozowski}
@@ -128,45 +128,27 @@
 		\tableofcontents
 		% You might wish to add the option [pausesections]
 	\end{frame}
-
-	\section{Wprowadzenie}
-	\subsection{Specyfika mechaniki płynów}
-	\begin{frame}{Specyfika mechaniki płynów}
-		\includegraphics[width=14cm]{imgs/flowDaVinci.png}
-	\end{frame}
-	
-	\subsection{Równania ruchu}
-	\begin{frame}{Równania ruchu}
-		\framesubtitle{Postać różniczkowa (dla stałej objętości skończonej)}
-		\begin{textblock}{4}(0.501,2.801)
-			Równanie ciągłości:
-			\includegraphics[width=4cm]{imgs/ciaglosc.png}
-		\end{textblock}
-		\begin{textblock}{4}(5.001,3.501)
-			\includegraphics[width=2cm]{imgs/ciaglosc2.png}
-		\end{textblock}
-		\begin{textblock}{10}(0.501,5.501)
-			Równania Naviera-Stokesa (czyli równania pędu):
-			\includegraphics[width=10cm]{imgs/NS.png}
-		\end{textblock}
-		\begin{textblock}{13}(0.501,10.501)
-			Równanie energii przepływu lepkiego:
-			\includegraphics[width=13cm]{imgs/energia.png}
-		\end{textblock}
-	\end{frame}
 	
 	
-	\section{Wykorzystywane metody i ich zastosowanie}
+	
+	
+	
+	
+	
+	
+	
+	
+	\section{W poprzedniej prezentacji...}
 	\subsection{Wektory i wartości własne}
-	
-	\begin{frame}
-		\begin{textblock}{13}(5.501,1.001)
-			\includegraphics[width=10cm]{imgs/faces2.png}
-		\end{textblock}
-		\begin{textblock}{13}(0.501,7.201)
-			\includegraphics[width=12cm]{imgs/faces1.png}
-		\end{textblock}
-	\end{frame}
+
+\begin{frame}
+\begin{textblock}{13}(5.501,1.001)
+	\includegraphics[width=10cm]{imgs/faces2.png}
+\end{textblock}
+\begin{textblock}{13}(0.501,7.201)
+	\includegraphics[width=12cm]{imgs/faces1.png}
+\end{textblock}
+\end{frame}
 
 	\begin{frame}{Wektory i wartości własne}
 		\includegraphics[width=14cm]{imgs/pca_pod.png}
@@ -187,21 +169,6 @@
 			\includegraphics[width=13cm]{imgs/PCAandPOD.png}
 		\end{textblock}
 	\end{frame}
-
-
-\begin{frame}
-	\begin{textblock}{13}(3.501,1.001)
-		Oderwanie warstwy przyściennej w kanale rozszerającym się
-		\includegraphics[width=10cm]{imgs/oderwanie.png}
-	\end{textblock}
-\end{frame}
-
-\begin{frame}
-	\begin{textblock}{13}(4.501,2.001)
-		Profil warstwy przyściennej obliczony autoenkoderem
-		\includegraphics[width=8cm]{imgs/velocity2.png}
-	\end{textblock}
-\end{frame}
 
 \subsection{Robust POD/PCA}
 \begin{frame}{Robust POD/PCA}
@@ -230,6 +197,65 @@
 	\begin{textblock}{13}(8.501,7.001)
 		\includegraphics[width=7cm]{imgs/rpca.png}
 	\end{textblock}
+\end{frame}
+
+
+
+\section{Redukcja wymiarowości DMD}
+\subsection{Rozkład na wektory i wartości własne}
+\begin{frame} {Rozkład na wektory i wartości własne}
+\begin{textblock}{13}(6.801,3.501)
+	Rozkład X na macierze unitarną, wartości i \\ wektorów własnych \\
+	\includegraphics[width=9cm]{imgs/a_economy_svd_alf.png}
+\end{textblock}
+\begin{textblock}{13}(0.301,3.501)
+	Stany układu w kolejnych chwilach \\
+	\includegraphics[width=6cm]{imgs/a_X_svd.png}
+\end{textblock}
+\begin{textblock}{13}(2.301,10.501)
+	\includegraphics[width=4cm]{imgs/a_t_svd.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Rozkład na wektory i wartości własne}
+\begin{textblock}{13}(6.801,3.501)
+Rozkład X na macierze unitarną, wartości i \\ wektorów własnych \\
+\includegraphics[width=9cm]{imgs/a_truncated_svd.png}
+\end{textblock}
+\begin{textblock}{13}(0.301,3.501)
+Stany układu w kolejnych chwilach \\
+\includegraphics[width=6cm]{imgs/a_X_svd.png}
+\end{textblock}
+\begin{textblock}{13}(2.301,10.501)
+\includegraphics[width=4cm]{imgs/a_t_svd.png}
+\end{textblock}
+\end{frame}
+
+
+\section{Wprowadzenie}
+\subsection{Specyfika mechaniki płynów}
+\begin{frame}{Specyfika mechaniki płynów}
+\includegraphics[width=14cm]{imgs/flowDaVinci.png}
+\end{frame}
+
+\subsection{Równania ruchu}
+\begin{frame}{Równania ruchu}
+\framesubtitle{Postać różniczkowa (dla stałej objętości skończonej)}
+\begin{textblock}{4}(0.501,2.801)
+Równanie ciągłości:
+\includegraphics[width=4cm]{imgs/ciaglosc.png}
+\end{textblock}
+\begin{textblock}{4}(5.001,3.501)
+\includegraphics[width=2cm]{imgs/ciaglosc2.png}
+\end{textblock}
+\begin{textblock}{10}(0.501,5.501)
+Równania Naviera-Stokesa (czyli równania pędu):
+\includegraphics[width=10cm]{imgs/NS.png}
+\end{textblock}
+\begin{textblock}{13}(0.501,10.501)
+Równanie energii przepływu lepkiego:
+\includegraphics[width=13cm]{imgs/energia.png}
+\end{textblock}
 \end{frame}
 
 %	\subsection{Recursive Neural Networks}
