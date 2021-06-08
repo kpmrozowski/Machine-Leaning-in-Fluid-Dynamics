@@ -138,8 +138,8 @@
 	
 	
 	
-	\section{W poprzedniej prezentacji...}
-	\subsection{Wektory i wartości własne}
+\section{Wstęp do otrzymywania modeli z wektorów i wartosci własnych}
+\subsection{Wektory i wartości własne}
 
 \begin{frame}
 \begin{textblock}{13}(5.501,1.001)
@@ -201,8 +201,39 @@
 
 
 
-\section{Redukcja wymiarowości DMD}
-\subsection{Rozkład na wektory i wartości własne}
+
+
+
+
+\section{Redukcja wymiarowości}
+\subsection{Redukcja wymiarowości z użyciem Dynamic Mode Decomposition}
+\begin{frame} {Matematyczny model fizyki}
+\begin{textblock}{13}(4.801,3.001)
+	\includegraphics[width=9cm]{imgs/rom1.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Algorytm Dynamic Mode Decomposition}
+	\includegraphics[width=14cm]{imgs/dmd_img.png}
+\end{frame}
+
+\begin{frame} {Algorytm Dynamic Mode Decomposition}
+	\includegraphics[width=14cm]{imgs/dmd_img.png}
+\begin{textblock}{18}(0.501,3.401)
+	\includegraphics[width=7.5cm]{imgs/dmd_alg_grey.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Algorytm Dynamic Mode Decomposition}
+\includegraphics[width=14cm]{imgs/dmd_img.png}
+\begin{textblock}{18}(0.501,3.401)
+	\includegraphics[width=7.5cm]{imgs/dmd_alg2_grey.png}
+\end{textblock}
+\begin{textblock}{18}(2.001,9.901)
+\includegraphics[width=5.5cm]{imgs/dmd_xk_grey.png}
+\end{textblock}
+\end{frame}
+
 \begin{frame} {Rozkład na wektory i wartości własne}
 \begin{textblock}{13}(6.801,3.501)
 	Rozkład X na macierze unitarną, wartości i \\ wektorów własnych \\
@@ -217,46 +248,107 @@
 \end{textblock}
 \end{frame}
 
-\begin{frame} {Rozkład na wektory i wartości własne}
+\begin{frame} {Rozkład według wartości osobliwych}
 \begin{textblock}{13}(6.801,3.501)
-Rozkład X na macierze unitarną, wartości i \\ wektorów własnych \\
-\includegraphics[width=9cm]{imgs/a_truncated_svd.png}
+	Rozkład X na macierze unitarną, wartości i \\ wektorów własnych \\
+	\includegraphics[width=9cm]{imgs/a_truncated_svd.png}
 \end{textblock}
 \begin{textblock}{13}(0.301,3.501)
-Stany układu w kolejnych chwilach \\
-\includegraphics[width=6cm]{imgs/a_X_svd.png}
+	Stany układu w kolejnych chwilach \\
+	\includegraphics[width=6cm]{imgs/a_X_svd.png}
 \end{textblock}
 \begin{textblock}{13}(2.301,10.501)
-\includegraphics[width=4cm]{imgs/a_t_svd.png}
+	\includegraphics[width=4cm]{imgs/a_t_svd.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Biblioteka wektorów własnych}
+\begin{textblock}{13}(1.801,3.001)
+	\includegraphics[width=12cm]{imgs/rom2.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Pipeline a,b,c:  Reduced Order Modeling}
+\begin{textblock}{13}(1.801,3.001)
+	\includegraphics[width=12cm]{imgs/rom4.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Pipeline d,e,f:  Compressive sensing}
+\begin{textblock}{13}(1.801,3.001)
+	\includegraphics[width=12cm]{imgs/rom5.png}
+	$\tilde{x_i}=Px_i$
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Klasyfikacja: wybieranie wektorów własnych z biblioteki}
+\begin{textblock}{13}(1.801,3.001)
+	\includegraphics[width=12cm]{imgs/rom3.png}
+\end{textblock}
+\begin{textblock}{13}(0.801,7.001)
+	Przykład:\\
+\includegraphics[width=6cm]{imgs/pde.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Rekonstrukcja: ciśnienie na powierzchni walca}
+\begin{textblock}{13}(1.801,1.501)
+	\includegraphics[width=12cm]{imgs/time_dynamics.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Rekonstrukcja: ciśnienie wokół walca}
+\begin{textblock}{13}(1.801,3.001)
+	\includegraphics[width=12cm]{imgs/reconstruction.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Klasyfikacja liczby Reynoldsa przepływu zmiennego w czasie}
+\begin{textblock}{13}(2.801,1.501)
+	\includegraphics[width=10cm]{imgs/reconstruction2.png}
 \end{textblock}
 \end{frame}
 
 
-\section{Wprowadzenie}
-\subsection{Specyfika mechaniki płynów}
-\begin{frame}{Specyfika mechaniki płynów}
-\includegraphics[width=14cm]{imgs/flowDaVinci.png}
+
+
+
+
+\subsection{Redukcja wymiarowości z użyciem sieci neuronowej}
+\begin{frame} {Deep Koopman auto-encoder}
+\begin{textblock}{18}(4.001,4.001)
+	\includegraphics[width=6cm]{imgs/koopman.png}
+\end{textblock}
 \end{frame}
 
-\subsection{Równania ruchu}
-\begin{frame}{Równania ruchu}
-\framesubtitle{Postać różniczkowa (dla stałej objętości skończonej)}
-\begin{textblock}{4}(0.501,2.801)
-Równanie ciągłości:
-\includegraphics[width=4cm]{imgs/ciaglosc.png}
+\begin{frame} {Deep Koopman auto-encoder}
+\begin{textblock}{18}(1.001,2.001)
+	\includegraphics[width=14cm]{imgs/deepKoopman.png} \\ 
+	Operator Koopmana K oraz wartości własne:
 \end{textblock}
-\begin{textblock}{4}(5.001,3.501)
-\includegraphics[width=2cm]{imgs/ciaglosc2.png}
-\end{textblock}
-\begin{textblock}{10}(0.501,5.501)
-Równania Naviera-Stokesa (czyli równania pędu):
-\includegraphics[width=10cm]{imgs/NS.png}
-\end{textblock}
-\begin{textblock}{13}(0.501,10.501)
-Równanie energii przepływu lepkiego:
-\includegraphics[width=13cm]{imgs/energia.png}
+\begin{textblock}{18}(8.501,14.501)
+	\includegraphics[width=4cm]{imgs/koopman.png}
 \end{textblock}
 \end{frame}
+
+\begin{frame} {Deep Koopman autoencoder identyfying continuous eigenvalue
+		spectrum $\lambda$}
+\begin{textblock}{18}(0.501,3.001)
+	\includegraphics[width=8cm]{imgs/frequencyKoopman.png}
+\end{textblock}
+\end{frame}
+
+\begin{frame} {Wyuczone funkcje własne operatora Koopmana}
+\begin{textblock}{18}(4.001,1.601)
+	\includegraphics[width=8.5cm]{imgs/koopman_eigenfunctions.png}
+\end{textblock}
+\end{frame}
+
+
+
+
+
+
 
 %	\subsection{Recursive Neural Networks}
 %	\begin{frame}{Recursive Neural Networks}
@@ -307,12 +399,20 @@ Równanie energii przepływu lepkiego:
 		\frametitle{References}
 \begin{thebibliography}{9}
 	
-	\bibitem{flow_image}
-	Leonardo da'Vinci  \textit{\href{https://images.slideplayer.com/26/8393980/slides/slide_5.jpg}{Flow}}.
-	
 	\bibitem{datacamp}
 	Steven L. Brunton, Bernd R. Noack, and Petros Koumoutsakos
 	\textit{\href{https://www.annualreviews.org/doi/abs/10.1146/annurev-fluid-010719-060214}{Machine Learning for Fluid Mechanics}}. 
+	
+	\bibitem{KutzBurton}
+	Bethany Lusch, J. Nathan Kutz, Steven L. Brunton, 
+	\textit{\href{https://doi.org/10.1038/s41467-018-07210-0}{Deep learning for universal linear embeddings of nonlinear dynamics}. Nature Communications, 9 (2018), p. 4950.} 
+	
+	\bibitem{datacamp}
+	Bethany Lusch, 
+	\textit{\href{github.com/BethanyL/DeepKoopman}{github.com/BethanyL/DeepKoopman}.} 
+	
+	
+	 
 	
 %	\bibitem{datacamp}
 %	Ilhan, Hamza Osman, and Mehmet Fatih Amasyali. 
